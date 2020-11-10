@@ -1,0 +1,165 @@
+/*!
+Theme Name:   	Akysz Storefront Child Theme
+Theme URI:    	https://akysz.pl
+Author:       	Peter Ramotowski
+Author URI:     https://akysz.pl
+Template:     	storefront
+Text Domain:    sf-akysz
+Description:  	This is a simple child theme for StoreFront theme with some improvements
+Version:      	1.0.0
+License:      	GNU General Public License v2 or later
+License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  	sf-akysz
+This theme, like WordPress, is licensed under the GPL.
+Images License: GNU General Public License v2 or later
+*/
+
+.storefront-primary-navigation {
+  background-color: rgba(0, 0, 0, .15);
+}
+
+// Search page top margin fix 
+.search .site-header {
+  margin-bottom: 4.235801032em;
+}
+
+// Number input field controls replacement
+.custom-number-input {
+  .decrement,
+  .increment {
+    user-select: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 0 .25rem;
+    display: inline-block;
+  }
+  input {
+    appearance: textfield;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+// Header mini cart
+@media (min-width: 768px) {
+  .site-header-cart {
+    .widget_shopping_cart {
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      z-index: 99;
+      font-size: .875em;
+      left: 0;
+      display: block;
+    }
+    .widget_shopping_cart_content {
+      max-height: 0;
+      overflow: hidden;
+      transition: all .33s;
+    }
+    &:hover .widget_shopping_cart_content,
+    &.active .widget_shopping_cart_content {
+      max-height: 30em;
+      overflow-y: auto;
+    }
+    .widget_shopping_cart .product_list_widget {
+      height: auto;
+    }
+    &:hover .widget_shopping_cart .product_list_widget,
+    &.active .widget_shopping_cart .product_list_widget,
+    &.focus .widget_shopping_cart .product_list_widget {
+      height: auto;
+    }
+
+    a.remove::before {
+      color: #fff;
+    }
+  }
+}
+
+.site-header-cart,
+.site-footer {
+  a.remove::before {
+    color: #fff;
+  }
+}
+
+// Large checkboxes
+.checkbox,
+.woocommerce-form__label-for-checkbox {
+  position: relative;
+  padding-left: 30px;
+  padding-bottom: 1em;
+
+  input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    & + span::before { 
+      position: absolute;
+      display: block;
+      content: '';
+      visibility: visible; 
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #000;
+      background: transparent;
+      cursor: pointer; 
+    }
+    &:checked + span::before { 
+      background: #000;
+    }
+    &:checked + span::after {
+      position: absolute;
+      display: block;
+      content: '';
+      top: .1em;
+      left: 7px;
+      width: 7px;
+      height: 14px;
+      border: 1px solid #fff;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+// smaller footer handheld bar
+.storefront-handheld-footer-bar ul li > a {
+  height: 3em;
+  &::before {
+    line-height: 2.25;
+    font-size: 1.33em;
+  }
+}
+
+// Hide view cart button
+a.added_to_cart.wc-forward {
+  display: none;
+}
+
+
+.woocommerce-info,
+.woocommerce-noreviews,
+p.no-comments {
+  background-color: #ab3b61;
+}
+
+.woocommerce-panel--additional_information {
+  p {
+    margin-bottom: .5em;
+  }
+}
+
+#ship-to-different-address label,
+.form-row.create-account label {
+  font-weight: 600;
+}
+
+a:not(.button):focus {
+  outline: none;
+}
